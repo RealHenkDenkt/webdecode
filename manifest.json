@@ -1,0 +1,37 @@
+{
+	"name": "WebDecode",
+	"version": "1.0.0",
+	"description": "Decode from any site",
+	"manifest_version": 3,
+	"author": "Henk Denkt",
+	"action": { 
+		"default_popup": "index.html",
+		"default_title": "Decode from any site"
+	},
+	"content_scripts": 
+		[
+			{ 
+				"matches": ["http://*/*"],
+				"js": 
+					[ 
+						"jquery.min.js",
+						"ciphers.js",
+						"phraser.js",
+						"Strongs.js",
+						"strongs-dict.js",
+						"GreekDict.js",
+						"webdecode.js"
+					],
+					"css": [ "style.css"],
+					"run_at": "document_end"
+			}
+		],
+	"host_permissions": ["<all_urls>"],
+	"permissions": 
+		[
+			"scripting",
+			"activeTab",
+			"storage"
+	]
+
+	}

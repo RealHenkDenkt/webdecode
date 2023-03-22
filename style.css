@@ -1,0 +1,82 @@
+.bold-green {
+    color: #0bb46c;/*#4ea121;*/
+    font-weight: bolder;
+}
+.bold-blue {
+    color: #3677d0;/*#4ea121;*/
+    font-weight: bolder;
+}
+.bold-white {
+    color: #f3dada;/*#4ea121;*/
+    font-weight: bolder;
+}
+
+.bold-yellow {
+    color: #c1c70f;/*#4ea121;*/
+    font-weight: bolder;
+}
+.bold-red {
+    color: #dc2e28;/*#4ea121;*/
+    font-weight: bolder;
+}
+.bold-orange {
+    color: #db7e2c;/*#4ea121;*/
+    font-weight: bolder;
+}
+.phrase_result {
+	background: black!important;
+}
+.phrase-result, .hebrew-word {
+    font-weight: bolder!important;
+    color:#ea741a!important;
+}
+
+#phrase_result {
+	background: black!important;
+	margin-left: 20px;
+}
+
+.phrase_result_row, #phrase_result {
+	overflow-x: clip;
+	overflow-y: clip;
+	padding: 5px;
+}
+div.a_word {
+	display: -webkit-inline-box;
+	padding: 5px;
+	font-size: xx-large;
+}
+div.a_word sup {
+	font-size: 60%;
+    line-height: 0;
+    position: relative;
+    vertical-align: super;
+}
+.glow-red {
+    background:#172b4d;
+    color: #ea741a;
+}
+.glow-red-blackbg {
+    background: #212529;
+    color: #ea741a;
+}
+
+.glow-bold-green-blackbg {
+    background: #212529;
+	color: #0bb46c;/*#4ea121;*/
+    font-weight: bolder;
+}
+
+sub {
+    color: #2d8968 !important;
+    font-size: smaller;
+    padding-left: -20px;
+    margin-bottom: -20px;
+}
+
+sup {
+    color: #0c85d0 !important;
+    font-size: smaller;
+    margin-top: -5px;
+    top: -.7em;
+}
