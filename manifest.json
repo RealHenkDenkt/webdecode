@@ -14,15 +14,18 @@
 				"matches": ["http://*/*"],
 				"js": 
 					[ 
-						"jquery.min.js",
-						"ciphers.js",
-						"phraser.js",
-						"Strongs.js",
-						"strongs-dict.js",
-						"GreekDict.js",
-						"webdecode.js"
+						"js/jquery.min.js",
+						"js/ciphers.js",
+						"js/phraser.js",
+						"js/Strongs.js",
+						"js/strongs-dict.js",
+						"js/GreekDict.js",
+						"js/HebrewTranslate.js",
+						"js/webdecode.js",
+						"json/dict-en-he.json",
+						"json/dict-he-en.json"
 					],
-					"css": [ "style.css"],
+					"css": [ "css/style.css"],
 					"run_at": "document_end"
 			}
 		],
