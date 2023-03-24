@@ -91,13 +91,13 @@ chrome tab
 - Trigonal Reversed 
 
 **Unsorted ciphers**
--Francis Bacon
--Francis Baconis
--Jewish
--Jewish Gematria
--Jewish Ordinal
--Jewish reduction
--Manly P Hall Cipher
--Manly P Hall Cipher (Red.)
--Manly P Hall Cipher (Rev.)
--Manly P Hall Cipher (Red. Rev.)
+- Francis Bacon
+- Francis Baconis
+- Jewish
+- Jewish Gematria
+- Jewish Ordinal
+- Jewish reduction
+- Manly P Hall Cipher
+- Manly P Hall Cipher (Red.)
+- Manly P Hall Cipher (Rev.)
+- Manly P Hall Cipher (Red. Rev.)
