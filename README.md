@@ -9,6 +9,14 @@ the letters of the alphabet are connected to numerical values. The most simple c
 English alphabet would be: A=1, B=2, C=3......Z=26. This cipher is called 'English Ordinal' and is 
 included in the extension. A full list of available ciphers is listed below. 
 
+### Installation
+
+This is a Chrome extension and can be installed like any Chrome extension. Download the extension as a zip file, 
+unzip it to a folder. Then go to extensions in Chrome, enable developer mode (this is a switch in the extension 
+screen), click 'load unpacked' and then select the folder where the zip file was unzipped. 
+
+It is convenient to pin the extension to the browser bar.
+
 ### Basic use
 
 (optional)
@@ -101,3 +109,5 @@ chrome tab
 - Manly P Hall Cipher (Red.)
 - Manly P Hall Cipher (Rev.)
 - Manly P Hall Cipher (Red. Rev.)
+
+
