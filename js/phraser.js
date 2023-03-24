@@ -14,10 +14,12 @@ let Phraser = function (phrase, cipher) {
     this.hebrewTranslation = '';
     this.greekTranslation = ''; // Used for Strongs content
     this.greekPhraseOriginal = '';
+    this.hebrewPhraseOriginal = '';
     this.isopheny = false;
 }
 
 Phraser.prototype.translateHebrew = function () {
+    return;
     //returns html
     let html = '';
     let words = this.analyzed;
@@ -59,6 +61,7 @@ Phraser.prototype.lookupGreek = function () {
     }
 
     this.greekPhraseOriginal = this.phrase;
+   
     this.phrase = newPhrase;
     this.translation = translation;
 }
@@ -185,12 +188,19 @@ Phraser.prototype.sumElements = function () {
     return total.toFixed(3);
 }
 
+Phraser.prototype.reverseString = function (string) {
+	let array = string.split("");
+	array.reverse();
+	return array.join("");
+}
+
 Phraser.prototype.iterateWords = function () {
     //returns html
     let html = '';
     let words = this.analyzed;
     let strongsHtml = '';
-
+    let strongsHebrewHtml = '';
+    
     for (let i = 0; i < words.length; i++) {
 		let strongWord = false;
 		
@@ -208,7 +218,18 @@ Phraser.prototype.iterateWords = function () {
             } else{
                 html += '<span class="greek-word">';
             }
-        }
+        } else if (this.cipher === 'HebrewGematria' || this.cipher === 'HebrewGematriaOrdinal') {
+			let orig = this.phrase.split(' ');
+            let origWord = words[i][0];
+			let strongs = new Strongs();
+
+			let h = new HebrewTranslate();
+			let translated = h.justTranslate('he', origWord);
+			if ('' !== translated) {
+				strongsHebrewHtml += strongs.postHebrewWord(translated);
+			}
+		}
+
 		if (true === strongWord) {
             let orig = this.greekPhraseOriginal.split(' ');
 			html += '<div class="a_word data-gr="' + orig[i] + '">';
@@ -219,31 +240,22 @@ Phraser.prototype.iterateWords = function () {
 			html += '<div class="a_word">';
 		}
         for (let t = 0; t < words[i][4].length; t++) {
-//            if (false === enableLetterValues) {
-	//			html += words[i][0][t];
-		//	} else {
-				if (this.cipher === 'HebrewGematria' || this.cipher === 'HebrewOrdinalGematria') {
-					html += '<span><sup>' + words[i][4][t] + '</sup>' + words[i][0][t]+'</span>';
-				} else {
-					html += words[i][0][t] + '<sup>' + words[i][4][t] + '</sup>';	
-				}
-					
-		//	}
-            
+			if (this.cipher === 'HebrewGematria' || this.cipher === 'HebrewOrdinalGematria') {
+				html += '<span><sup>' + words[i][4][t] + '</sup>' + words[i][0][t]+'</span>';
+			} else {
+				html += words[i][0][t] + '<sup>' + words[i][4][t] + '</sup>';	
+			}
         }
 
-      // if (false === enableLetterValues) {
-	//		html += '</div>';
-	//	} else {
-			html += '&nbsp;<sub>' + words[i][1] + '/' + words[i][2] + '</sub></div>';	
-	//	}
-        
+		html += '&nbsp;<sub>' + words[i][1] + '/' + words[i][2] + '</sub></div>';	
 
         if (this.cipher === 'GreekIsopheny') {
             html += '</span>';
         }
     }
+	
 	this.greekTranslation = strongsHtml;
+	this.hebrewTranslation = strongsHebrewHtml;
 	
     return html;
 }

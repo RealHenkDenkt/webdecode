@@ -1,3 +1,6 @@
+let hedict = [];
+let hebrewDict = [];
+
 let activeText = '';
 let DefaultCipher = 'EnglishGematria';
 let 
@@ -29,6 +32,19 @@ let decode = function (){
 	},400);
 }
 
+function getJsonData (url) {
+		var jsonData = null;
+   		$.ajax({
+    		async: false,
+      		url: url,
+      		dataType: 'json',
+      		success: function (data) {
+        		jsonData = data;
+	      	}
+    	});
+    
+    	return jsonData;
+	}; 
 
 function getSel() {
 	return window.getSelection().toString();
@@ -36,6 +52,10 @@ function getSel() {
 
 
 $(document).ready(function (){
+
+	hedict = getJsonData('json/dict-he-en.json');
+	hebrewDict = getJsonData('json/hebrew-dict-b.json');
+		
 	// Load cipher from storage
 	loadData();
 	// Save config button
@@ -63,44 +83,42 @@ function decodeAndParse () {
 	let phrase = $('#phraseAdd').val();
 	
 	if (phrase !== '') {
-			let phraser = new Phraser(phrase, cipher);
+		let phraser = new Phraser(phrase, cipher);
+	
+		phraser.getPhraseValue();
+		phraser.totalize();
 		
-			phraser.getPhraseValue();
-			phraser.totalize();
+		if (cipher === 'HebrewGematria' || cipher === 'HebrewGematriaOrdinal') {
+			let hebrewTranslation = phraser.hebrewTranslation;
+			$('#translate_result').html(hebrewTranslation);
+		}
+		
+		if (cipher === 'GreekIsopheny') {
+			$('#translate_result').html(phraser.greekTranslation);
+		}
 			
-			if (cipher === 'HebrewGematria' || cipher === 'HebrewGematriaOrdinal') {
-				let hebrewTranslation = phraser.translateHebrew();
-				$('#translate_result').html(hebrewTranslation);
-			}
-			
-			if (cipher === 'GreekIsopheny') {
-				$('#translate_result').html(phraser.greekTranslation);
-			}
-				
-			currentCipher.html(cipher);
-			partialPhrase.html(phraser.phraseHtml);
-			partialPhraseTotal.html(phraser.totals.A);	
-			partialPhraseReduced.html(phraser.totals.B);
-			partialPhraseLetters.html(phraser.totals.C);
-			partialPhraseWords.html(phraser.totals.D);
-			partialPhraseSummed.html(phraser.totals.S);
+		currentCipher.html(cipher);
+		partialPhrase.html(phraser.phraseHtml);
+		partialPhraseTotal.html(phraser.totals.A);	
+		partialPhraseReduced.html(phraser.totals.B);
+		partialPhraseLetters.html(phraser.totals.C);
+		partialPhraseWords.html(phraser.totals.D);
+		partialPhraseSummed.html(phraser.totals.S);
 
-			if (cipher === 'HebrewGematria' || cipher === 'HebrewGematriaOrdinal') {			
-				//partialPhrase.css('text-align', 'right');
-				$('.a_word').each(function (){
-					$(this).css('float', 'right');
-										
-				});
-				$('sup').each(function (){
-					$(this).css('text-align', 'right');
-				});
-				
-			} else {
-				//partialPhrase.css('text-align', 'left');
-				$(this).css('float', 'left');
-			}
+		if (cipher === 'HebrewGematria' || cipher === 'HebrewGematriaOrdinal') {			
+			//partialPhrase.css('text-align', 'right');
+			$('.a_word').each(function (){
+				$(this).css('float', 'right');
+									
+			});
+			$('sup').each(function (){
+				$(this).css('text-align', 'right');
+			});
 			
-		
+		} else {
+			//partialPhrase.css('text-align', 'left');
+			$(this).css('float', 'left');
+		}
 	}
 }
 
@@ -117,25 +135,11 @@ function getStorageKeyValue(key, onGetStorageKeyValue){
     });
 }
 
-//setStorageKey("K1", value);
-
-//) 2) Get saved value from storage and display a warning message with the value
-//getStorageKeyValue("K1", function(key) {
-//  alert("Set value: "+value+" --- Received value: "+ key);
-//});
-// Results in: Set value: 10 --- Received Value: 10
-
 function loadData() {
 	getStorageKeyValue("cipher", function (cipher){
 		let select = $("#activeCipher");
 		
 		select.val(cipher !== ''?cipher:DefaultCipher);						
 	});		
-//		let cipher = (undefined === obj.cipher)?DefaultCipher:obj.cipher;
-//							
-//		let select = $("#activeCipher");
-//		select.val(cipher);
-	
-	
 }
 

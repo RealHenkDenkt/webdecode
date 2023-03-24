@@ -53,7 +53,7 @@ div.a_word {
 	font-size: xx-large;
 	}
 div.a_word sup {
-	font-size: 60%;
+	font-size: 50%;
     line-height: 0;
     position: relative;
     vertical-align: super;
@@ -90,7 +90,7 @@ sup {
     color: #0c85d0 !important;
     font-size: smaller;
     margin-top: -5px;
-    top: -.7em;
+    top: -.9em;
 }
 .hebrew-translation, .greek-translation {
     color: rgb(153, 193, 241) !important;

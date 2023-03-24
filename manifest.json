@@ -20,6 +20,7 @@
 						"js/Strongs.js",
 						"js/strongs-dict.js",
 						"js/GreekDict.js",
+						"json/hebrew-dict-b.json",
 						"js/HebrewTranslate.js",
 						"js/webdecode.js",
 						"json/dict-en-he.json",
