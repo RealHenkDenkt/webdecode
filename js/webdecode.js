@@ -60,7 +60,6 @@ $(document).ready(function (){
 	loadData();
 	// Save config button
 	$('#saveConfigurationButton').on('click', function (){
-		console.log('hier');
 		let cipher = $('#activeCipher').val();
 		setStorageKey("cipher", cipher);
 	});

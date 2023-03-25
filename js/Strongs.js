@@ -122,7 +122,6 @@ Strongs.prototype.setDerivation = function (html) {
     for (let match in matches) {
         if (matches.hasOwnProperty(match)) {
             g = matches[match];
-            console.log(g, matches);
 
             if (undefined !== g) {
                 html = html.replace(g, '<span class="greek-word bold-green strongs-g" data-strongs="' + g + '">' + g + '</span>');
