@@ -1,6 +1,7 @@
 let hedict = [];
 let hebrewDict = [];
-
+let personal = true;
+let translation = false;
 let activeText = '';
 let DefaultCipher = 'EnglishGematria';
 let 
@@ -65,6 +66,7 @@ $(document).ready(function (){
 	});
 	// Run decode on cipher change
 	$('#activeCipher').on('change', function (){
+		setTranslation();
 		setStorageKey("cipher", $(this).val());
 		decodeAndParse();				
 	});
@@ -74,8 +76,23 @@ $(document).ready(function (){
 		decodeAndParse();
 	});
 	
+	// Search
+	$('#initSearchButton').on('click', function (){
+		let handler = new ExtApiHandler();
+		handler.searchPhrase();		
+	});
+	
+	let searchHandler = new SearchHandler();
+	searchHandler.init();
+	
+	setTranslation();
 	decode();
 });		
+
+function setTranslation(){
+	// Is cipher = Greek, eneable new translation.
+		translation = $('#activeCipher').val() === 'GreekIsopheny'?true:false;	
+}
 
 function decodeAndParse () {
 	let cipher = $('#activeCipher').val();
@@ -89,13 +106,8 @@ function decodeAndParse () {
 		
 		if (cipher === 'HebrewGematria' || cipher === 'HebrewGematriaOrdinal') {
 			let hebrewTranslation = phraser.hebrewTranslation;
-			$('#translate_result').html(hebrewTranslation);
+			$('#translateResult').html(hebrewTranslation);
 		}
-		
-		if (cipher === 'GreekIsopheny') {
-			$('#translate_result').html(phraser.greekTranslation);
-		}
-			
 		currentCipher.html(cipher);
 		partialPhrase.html(phraser.phraseHtml);
 		partialPhraseTotal.html(phraser.totals.A);	
@@ -118,6 +130,14 @@ function decodeAndParse () {
 			//partialPhrase.css('text-align', 'left');
 			$(this).css('float', 'left');
 		}
+
+		// Finally if Greek, check for full translation		
+		if (cipher === 'GreekIsopheny') {
+			$('#translateResult').html(phraser.greekTranslation);
+			let handler = new ExtApiHandler();
+			handler.loadPhrase();
+		}
+
 	}
 }
 

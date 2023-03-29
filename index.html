@@ -84,11 +84,40 @@
 				<h2 class="glow-bold-green-blackbg" id="currentCipher"></h2>
 				<h2 class="glow-red-blackbg" id="partialPhrase"></h2>
 			</div>
-	
-			
+		</div>
+		<div class="row" id="searchInputDiv">
+			<input class="form-control-sm" type="text" id="searchInput"><button class="btn-info form-control-sm" id="initSearchButton">Search</button>
+		</div>
+		<div class="row" id="searchButtonsDiv">
+			<button title="Limit search to reduced value" class="btn-success form-control-sm search-type-button" name="search-reduced">Reduced</button>
+			<button title="Limit search to number of letters" class="btn-success form-control-sm search-type-button" name="search-letters">Letters</button>
+			<button title="Limit search to words" class="btn-success form-control-sm search-type-button" name="search-words">Words</button>
+			<button title="Limit search to phrases" class="btn-success form-control-sm search-type-button" name="search-phrases">phrases</button>
+			<input type="hidden" id="search-reduced" value="0">
+			<input type="hidden" id="search-letters" value="0">
+			<input type="hidden" id="search-words" value="0">
+		</div>
+
+		<div class="row" id="search_results">
+			<table class="table-dark" id="search-results-table">
+				<thead class="table-dark">
+					<tr>
+						<th class="search-results-phrase">Phrase</th>
+						<th class="search-results-number">Value</th>
+						<th class="search-results-number">Reduced</th>
+						<th class="search-results-number">Letters</th>
+						<th class="search-results-number">Words</th>
+						<th class="search-results-number">Total</th>
+					</tr>
+				</thead>
+				<tbody id="searchResultTableBody"></tbody>
+			</table>					
+		</div>
+		<div class="row" id="fullTranslation">
+		
 		</div>
 		<div class="row">
-			<div class="container" id="translate_result"></div>
+			<div class="container" id="translateResult"></div>
 		</div>
 	<script src="js/jquery.min.js"></script>
 	<script src="js/ciphers.js"></script>
@@ -98,6 +127,9 @@
 	<script src="js/strongs-hebrew-dictionary.js"></script>
 	<script src="js/GreekDict.js"></script>
 	<script src="js/HebrewTranslate.js"></script>
+	<script src="js/FullGreekTranslation.js"></script>
+	<script src="js/SearchHandler.js"></script>
+	<script src="js/ExtApiHandler.js"></script>
 	<script src="js/webdecode.js"></script>
 	</body>
 </html>

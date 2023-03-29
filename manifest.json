@@ -24,7 +24,10 @@
 						"js/HebrewTranslate.js",
 						"js/webdecode.js",
 						"json/dict-en-he.json",
-						"json/dict-he-en.json"
+						"json/dict-he-en.json",
+						"js/FullGreekTranslation.js",
+						"js/SearchHandler.js",
+						"js/ExtApiHandler.js"
 					],
 					"css": [ "css/style.css"],
 					"run_at": "document_end"

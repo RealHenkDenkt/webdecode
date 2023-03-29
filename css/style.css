@@ -108,3 +108,44 @@ hr {
     margin: 1em 0;
     padding: 0;
 }
+.search-results-number {
+	width: 75x;
+	padding: 0;	
+}
+
+
+.search-results-phrase {
+	width: 420px;
+	padding: 0;
+}
+.btn-info {
+    color: #fff;
+    border-color: #11cdef;
+    background-color: #11cdef;
+    box-shadow: 0 4px 6px rgba(50,50,93,.11), 0 1px 3px rgba(0,0,0,.08);
+}
+
+.btn-success {
+    color: #fff;
+    border-color: #2dce89;
+    background-color: #2dce89;
+    box-shadow: 0 4px 6px rgba(50,50,93,.11), 0 1px 3px rgba(0,0,0,.08);
+}
+#searchInput {
+	width: 580px;
+}
+
+.btn-info, .btn-success {
+	width: 194px;
+}
+
+.form-control-sm {
+    font-size: .75rem;
+    line-height: 1.5;
+    height: calc(1.5em + 0.5rem + 2px);
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+}
+.full-translation-row {
+	width: 780px;
+}
