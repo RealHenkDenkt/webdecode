@@ -87,7 +87,7 @@ function decodeAndParse () {
 		phraser.getPhraseValue();
 		phraser.totalize();
 		
-		if (cipher === 'HebrewGematria' || cipher === 'HebrewGematriaOrdinal') {
+		if (cipher.substr(0, 6) === 'Hebrew') {
 			let hebrewTranslation = phraser.hebrewTranslation;
 			$('#translate_result').html(hebrewTranslation);
 		}
@@ -104,7 +104,7 @@ function decodeAndParse () {
 		partialPhraseWords.html(phraser.totals.D);
 		partialPhraseSummed.html(phraser.totals.S);
 
-		if (cipher === 'HebrewGematria' || cipher === 'HebrewGematriaOrdinal') {			
+		if (cipher.substr(0, 6) === 'Hebrew') {			
 			//partialPhrase.css('text-align', 'right');
 			$('.a_word').each(function (){
 				$(this).css('float', 'right');

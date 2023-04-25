@@ -1,4 +1,4 @@
-const CipherExceptions = ['FrancisBacon', 'GreekIsopheny', 'HebrewGematria'];
+const CipherExceptions = ['FrancisBacon', 'GreekIsopheny', 'HebrewGematria', 'HebrewGematriaOrdinal', 'HebrewGematriaMisparShemi'];
 const Vowels = [
     'A', 'E', 'I', 'O', 'U', 'Y'
 ];
@@ -168,15 +168,6 @@ var Ciphers = {
 		'ק': 100, 'ר': 200, 'ש': 300, 'ת': 400   
 	},
     
-    OldHebrewGematria: {
-	'א': 1, 'ב': 2, 'ג': 3, 'C': 3, 'ד': 4,
-	'ה': 5, 'ו': 6, 'ז': 7, 'ח': 8, 'ט': 9,
-	'י': 10, 'כ': 20, 'ך': 20, 'ל': 30, 'מ': 40, 'ם': 40,
-	'נ': 50,
-	'ן': 50, 'ס': 60, 'ע': 70, 'ף': 80, 'פ': 80, 'צ': 90,
-	'ץ': 90, 'ק': 100, 'ר': 200, 'ש': 300, 'ת': 400
-
-	},
     HebrewGematriaOrdinal: {
 	'א': 1, 'ב': 2, 'ג': 3, 'פְּ': 80, 'ד': 4,
 	'ה': 5, 'ו': 6, 'ז': 7, 'ח': 8, 'ט': 9,
@@ -185,6 +176,18 @@ var Ciphers = {
 	'ן': 50, 'ס': 15, 'ע': 16, 'ף': 17, 'פ': 17, 'צ': 18,
 	'ץ': 18, 'ק': 19, 'ר': 20, 'ש': 21, 'ת': 22
 
+	},
+	/**
+		Check the math at the Torah Calculator Mispar Shemi	
+
+		This ‘In-full’ rendering of the Hebrew uses only the most common spellings of the letters,
+	
+		where all the spellings are Talmudic save the final Tav, which has a value of 406 rather than 416.
+	 */
+	 HebrewGematriaMisparShemi: {
+		א: 111, ב: 412, ג: 83, ד: 434, ה: 6, ו: 12, ז: 67, ח: 418, ט: 419, י: 20, ך: 100, כ: 100, ל: 74, מ: 80, ם: 80, נ: 106,
+		 ן: 106, ס: 120, ע: 130, פ: 81, ף: 81, צ: 104, ץ: 104, ק: 186, ר: 510, ש: 350, ת: 416,
+			
 	},
 
     English026: {

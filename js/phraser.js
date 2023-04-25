@@ -218,7 +218,7 @@ Phraser.prototype.iterateWords = function () {
             } else{
                 html += '<span class="greek-word">';
             }
-        } else if (this.cipher === 'HebrewGematria' || this.cipher === 'HebrewGematriaOrdinal') {
+        } else if (this.cipher.substr(0, 6) === 'Hebrew') {
 			let orig = this.phrase.split(' ');
             let origWord = words[i][0];
 			let strongs = new Strongs();
@@ -233,14 +233,14 @@ Phraser.prototype.iterateWords = function () {
 		if (true === strongWord) {
             let orig = this.greekPhraseOriginal.split(' ');
 			html += '<div class="a_word data-gr="' + orig[i] + '">';
-		} if (this.cipher === 'HebrewGematria' || this.cipher === 'HebrewOrdinalGematria') {
+		} if (this.cipher.substr(0, 6) === 'Hebrew') {
 			html += '<div dir="rtl" class="a_word">';
 		
 		 } else {
 			html += '<div class="a_word">';
 		}
         for (let t = 0; t < words[i][4].length; t++) {
-			if (this.cipher === 'HebrewGematria' || this.cipher === 'HebrewOrdinalGematria') {
+			if (this.cipher.substr(0, 6) === 'Hebrew') {
 				html += '<span><sup>' + words[i][4][t] + '</sup>' + words[i][0][t]+'</span>';
 			} else {
 				html += words[i][0][t] + '<sup>' + words[i][4][t] + '</sup>';	
@@ -323,7 +323,7 @@ Phraser.prototype.analyze = function () {
 
             if (AcceptedChars.indexOf(letter) > -1) {
 				// Check foreign ciphers
-				if (this.cipher === 'HebrewGematria' || this.cipher === 'HebrewGematriaOrdinal') {
+				if (this.cipher.substr(0, 6) === 'Hebrew') {
 					// letter should be Hebrew otherwise skip
 					if (AcceptedHebrewChars.indexOf(letter) < 0) continue;
 				} else if (this.cipher === 'GreekIsopheny') { // same thing for Greek
