@@ -149,3 +149,11 @@ hr {
 .full-translation-row {
 	width: 780px;
 }
+td.search-results-phrase, 
+td.search-results-total, 
+td.search-results-reduced, 
+td.search-results-letters, 
+td.search-results-words, 
+td.search-results-summed {
+ border-bottom: 1px solid #3677d0!important;
+}

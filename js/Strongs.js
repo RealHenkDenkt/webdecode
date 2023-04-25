@@ -71,7 +71,7 @@ Strongs.prototype.postWord = function (wordName) {
 		let entry = StrongsGreekDictionary[key];
 
 		let html = '<div class="greek-word-container" id="' + number + '">';
-
+		if (undefined === entry) return html;
 		html += '<hr/>';			
 		html += '<h3 class="strongs">Word</h3>';
 		html += '<h2 class="greek-word">' + wordName + '</h2>';

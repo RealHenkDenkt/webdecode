@@ -24,7 +24,6 @@ let decode = function (){
 		}, function(selection) {
   			let el = document.getElementById('phraseAdd'); 
   			el.value = selection[0].result;
-
 		});
 	});
 	
@@ -136,8 +135,10 @@ function decodeAndParse () {
 			$('#translateResult').html(phraser.greekTranslation);
 			let handler = new ExtApiHandler();
 			handler.loadPhrase();
+		} else if (CipherLanguages.english.indexOf(cipher) > -1) {
+			let handler = new ExtApiHandler();
+			handler.loadEtymology();
 		}
-
 	}
 }
 

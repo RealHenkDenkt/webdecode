@@ -44,7 +44,7 @@ SearchHandler.prototype.makePhraseRow = function (values) {
 
 	let title = "Source: " + phrase.phrase.source  + ", transliteration: " + phrase.phrase.transliteration;
 	let html = '<tr class="search-result-row" title="' + title + '">';	
-	html += '<td class="search-results-phrase">' + phrase.phrase.phrase + '</td>';
+	html += '<td class="bold-orange search-results-phrase">' + phrase.phrase.phrase + '</td>';
 	html += '<td class="search-results-total">' + phrase.aTotal + '</td>';
 	html += '<td class="search-results-reduced">' + phrase.bTotal + '</td>';
 	html += '<td class="search-results-letters">' + phrase.cTotal + '</td>';

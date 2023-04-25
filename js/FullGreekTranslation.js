@@ -5,11 +5,12 @@ let FullGreekTranslation = function (rows) {
 
 FullGreekTranslation.prototype.processRows = function (){
 	let html = '';
-	for (let i = 0; i < this.rows.length; i++) {
-		if (undefined !== this.rows[i]['word']){
-			html += this.makeRow(this.rows[i]);	
+	let rows = this.rows;
+	
+	for (let i = 0; i < rows.length; i++) {
+		if (undefined !== rows[i]['word']){
+			html += this.makeRow(rows[i]);	
 		}
-		
 	}
 	
 	this.html = html;

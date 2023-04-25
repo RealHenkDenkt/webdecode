@@ -10,6 +10,26 @@ const Consonants = [
 ];
 const pronic = [0, 2, 6, 12, 20, 30, 42, 56, 72, 90, 110, 132, 156, 182, 210, 240, 272, 306, 342, 380, 420, 462];
 
+const CipherLanguages = {
+	'english': [
+		"EnglishGematria", "EnglishGematriaReversed", "EnglishExtendedGematria", "EnglishOrdinal",
+		"EnglishOrdinalFullReduction", "EnglishOrdinalReversed", "EnglishOrdinalReversedFullReduction",
+		"EnglishOrdinalSingleReduction", "EnglishOrdinalSingleReductionReversed", "Satanic", "SatanicReduction",
+		"SatanicReversed", "SatanicReversedReduction", "FullReductionKv", "Chaldean", "Septinary", "EnglishExtended",
+		"English026", "ALWKabbalah", "KFWKabbalah", "LCHKabbalah", "Composites", "ThreeBased", "SevenBased", "Fibonacci",
+		"Primes", "PrimesReversed", "Hexagonals", "Squares", "SquaresReversed", "Trigonal", "TrigonalReversed", "FrancisBacon",
+		"FrancisBaconis", "ManlyPHallCipherA", "ManlyPHallCipherAReduction", "ManlyPHallCipherAReversed", "ManlyPHallCipherAReversedReduction"
+	],
+	'hebrew': [
+		"HebrewGematria",
+		"HebrewGematriaOrdinal"
+	],
+	'greek': [
+		"GreekIsopheny"
+	]
+};
+
+
 const AcceptedCharskj = [
     'A', 'B', 'C', 'D', 'E', 'F', 'G',
     'H', 'I', 'J', 'K', 'L', 'M', 'N',

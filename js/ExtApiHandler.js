@@ -55,6 +55,19 @@ ExtApiHandler.prototype.loadPhrase = function () {
 	});
 }
 
+ExtApiHandler.prototype.loadEtymology = function () {
+	$.ajax({
+		url: this.hostUrlPart  + "/api-ext/loadetymology",
+		data: this.getData(),
+		method: 'post',
+		success: (function (d) {
+			collection = $.parseJSON(d);
+			let handler = new EtymologyHandler();
+			handler.parsePhraseResult(collection);			
+		})
+	});
+}
+
 ExtApiHandler.prototype.searchPhrase = function () {
 	    $.ajax({            
 		url: this.hostUrlPart + "/api-ext/searchphrase",

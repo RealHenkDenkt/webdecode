@@ -27,6 +27,7 @@
 						"json/dict-he-en.json",
 						"js/FullGreekTranslation.js",
 						"js/SearchHandler.js",
+						"js/EtymologyHandler.js",
 						"js/ExtApiHandler.js"
 					],
 					"css": [ "css/style.css"],
